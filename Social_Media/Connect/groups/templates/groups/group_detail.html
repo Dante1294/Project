@@ -1,0 +1,44 @@
+{% extends 'groups/group_base.html' %}
+{% block pregroup %}
+<div class="row">
+    <div class="col-lg-8">
+        <h1 id="grp-hd">#{{group.name}}</h1>
+        <h5>Member Count: {{group.members.count}}</h5>
+    
+    </div>
+    
+    <div class="col-lg-2">
+        {%if user in group.members.all%}
+        <a class='btn btn-lg btn-custom navbar-right' id="top_btn" href="{%url 'groups:leave' slug=group.slug%}">
+            Leave!
+        </a>
+        {%else%}
+        <a class='btn btn-fill btn-lg btn-custom navbar-right' id="top_btn" href="{%url 'groups:join' slug=group.slug%}">
+            Join!
+        </a>
+    
+        {%endif%}
+   
+    </div>
+
+</div>
+
+{% endblock  %}
+
+
+{%block group_content%}
+
+<div class="container" id="post-card">
+   
+    {%if group.posts.count == 0 %}
+        <h4>No Post in group yet!!</h4>
+    {%else%}
+        {%for post in group.posts.all%}
+            {%include "posts/_post.html"%}
+           
+        {%endfor%}
+
+    {%endif%}
+    <br>
+</div>
+{%endblock%}

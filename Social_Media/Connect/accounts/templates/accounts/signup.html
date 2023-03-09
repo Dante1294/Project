@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load bootstrap3 %}
+{% block content %}
+<div class="container">
+    <h1>Sign Up</h1>
+    <form method="post" id="signup_form">
+        {%csrf_token%}
+        {%bootstrap_form form%}
+        <input class="btn btn-custom btn-lg" type="submit" value="Sign Up">
+        <button class="btn btn-custom btn-lg navbar-right " value="Login" type="submit">
+            <a href="{%url 'accounts:login'%}">Login</a>
+        </button>
+    </form>
+    <br>
+    <br>
+    
+
+
+</div>
+
+{% endblock  %}

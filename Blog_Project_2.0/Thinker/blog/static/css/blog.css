@@ -1,0 +1,121 @@
+ /*navbar */
+.nav-custom{
+    background-image: linear-gradient(to right, rgb(58, 54, 59,0.5), rgba(177, 227, 194,1));
+  
+  }
+  
+.nav-links{
+    color: white;
+    font-size: 1.2em;
+    margin-top: 15px;
+  }
+
+.logo{
+    width: 50px;
+    height: 60px;
+    margin-right: 10px;
+    
+  }
+
+/*background*/
+.backimg{
+    background-image: url('/static/images/bg.jpg');
+    font-family: 'Rubik', sans-serif;
+    object-fit: fill;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+/*Content*/
+.container-fluid{
+    width: 100%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.glass-look{
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 10px;
+    font-family: sans-serif;
+    line-height: 1;
+    -webkit-backdrop-filter: blur(1px);
+    backdrop-filter: blur(1px);
+    padding: 20px 40px;
+
+}
+
+/*Post*/
+.medium-editor-placeholder:after{
+    font-style: normal;
+    width: 100%;
+}
+.medium-editor-textarea{
+    background-color: white;
+    border-radius: 5px;
+    padding: 5px;
+    width: 100%;
+}
+.postcontent{
+  font-size: 22px;
+  
+}
+.post_content{
+font-size: 20px;
+line-height: 1.5;
+}
+/*Title loader*/
+.loader {
+    filter:hue-rotate(0deg);
+    color:linear-gradient(45deg,#0f8,#08f);
+    animation:hue 10000ms infinite linear;
+   
+  }
+  @keyframes spinify {
+    0% {
+      transform: translate(0px,0px);
+      
+    }
+    33% {
+      transform: translate(0px,24px);
+      border-radius:100%;
+      width:10px;
+      height:10px;
+   
+    }
+     66% {
+      transform:translate(0px,-16px);
+    }
+    
+     88% {
+      transform:translate(0px,4px);
+       
+    }
+    100% {
+      transform:translate(0px,0px);
+    }
+  }
+  @keyframes hue{
+    0%{filter: hue-rotate(0deg);}
+    100%{filter:hue-rotate(360deg);}
+    
+  }
+
+.post_title{
+    color: #444647;
+    text-align: center;
+}
+.comment-color{
+    color: black;
+}
+.btn-comment{
+    position: absolute;
+    right: 100px;
+    
+  }
+.btn-center{
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <title>Thinker</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+        {# MEDIUM STYLE EDITOR#}
+        <script src="//cdn.jsdelivr.net/medium-editor/latest/js/medium-editor.min.js"></script>
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/medium-editor/latest/css/medium-editor.min.css" type="text/css" media="screen" charset="utf-8">
+
+
+        {# Custom CSS#}
+        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+
+        {# Fonts#}
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+    </head>
+
+
+
+
+
+    <body class="backimg">
+
+        <nav class="navbar nav-custom  ">
+          <div class="container">
+      
+      
+            <ul class="nav navbar-nav ">
+              <li><a class="logo-nav" href="{% url 'post_list' %}"><img class="logo" src="{%static '/images/logo.png'%}"></a></li>
+              <li><a class="nav-links" href="{% url 'about'%}">About</a></li>
+              <li><a class="nav-links" href="https://www.github.com">Github</a></li>
+              <li><a class="nav-links" href="https://www.facebook.com">Facebook</a></li>
+      
+            </ul>
+      
+            <ul class="nav navbar-nav navbar-right">
+              {% if user.is_authenticated %}
+              <li>
+                <a class="nav-links" href="{% url 'post_new' %}" >New Post</a>
+              </li>
+      
+              <li>
+                <a class="nav-links" href="{% url 'post_draft_list' %}">Drafts</a>
+              </li>
+              <li>
+                <a class="nav-links" href="{% url 'logout' %}" >Log out</a>
+              </li>
+      
+              <li>
+                <a class="nav-links">Welcome: {{ user.username }}</a>
+              </li>
+                {% else %}
+                <li><a class='nav navbar-right nav-links' href="{% url 'login' %}" ><span class="glyphicon glyphicon-user"></span></a></li>
+              {% endif %}
+      
+            </ul>
+        </div>  
+      </nav>
+      
+        {# The actual blog posts#}
+
+    <div class="container">
+
+    </div>
+    <div class="container-fluid">
+      <div class="glass-look">
+          {% block content %}
+          {% endblock %}
+      </div>
+  </div>
+             
+      
+                        
+        
+      
+      {# SCRIPTS#}
+      
+      <script type="text/javascript" src="{% static 'js/blog.js' %}"></script>
+      
+    </body>
+</html>

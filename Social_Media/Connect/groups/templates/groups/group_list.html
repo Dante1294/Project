@@ -1,0 +1,65 @@
+{% extends 'groups/group_base.html' %}
+
+{% block pregroup %}
+<div class="container" id="center-grp">
+    <div class="content">
+        {%if user.is_authenticated%}
+        <h2>Welcom Back! <br>
+            <a class="usr_style"href="{%url 'posts:for_user' username=user.username%}">@{{user.username}} </a>
+        </h2>
+        {%endif%}
+        
+        
+        <h2>Groups</h2>
+
+    </div>
+
+    <br>
+    <br>
+</div>
+
+
+{% endblock %}
+
+
+{%block group_content%} 
+
+<div class="container" >
+    <div class="lsit-group" id="grp-bg">
+        {%for group in object_list%}
+        <a class="list-group-item" href="{%url 'groups:single' slug=group.slug%}">
+            <h3 class="title list-group-item-heading">#{{group.name}}</h3>
+            
+                <h4>{{group.description_html|safe}}</h4>
+                
+                <div class="row">
+                    <div class="col-md-4">
+                        <span class="badge">{{group.members.count}}</span>
+                        member{{group.members.count|pluralize}}
+
+                    </div>
+                    <div class="col-md-4">
+                        <span class="badge">{{group.posts.count}}</span>
+                        post{{group.posts.count|pluralize}}
+
+                    </div>
+
+                </div>
+
+           
+        </a><br>
+        {%endfor%}
+        
+
+    </div>
+    <div class="create_btn">
+        {%if user.is_authenticated%} 
+        <a href="{%url 'groups:create'%}" class="btn btn-lg btn-custom">
+            Create Group!
+        </a>
+        {%endif%}
+    </div>
+ 
+
+</div>
+{%endblock%}
